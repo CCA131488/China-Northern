@@ -201,6 +201,14 @@
                  {
                     "name": "China Northern (Meizhou Pomelo livery)",
                     "texture": [
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
+                        "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
                         "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png"
                     ],
                     "credits": "CP8888"
@@ -819,3 +827,4 @@
     }
 
 }
+
