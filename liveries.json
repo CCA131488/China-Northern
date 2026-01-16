@@ -349,7 +349,15 @@
     },
     "1001": {
       "name": "Boeing b737-900",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b737-900/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Texture"
       ]
@@ -529,7 +537,7 @@
         {
            "name": "China Northern",
           "texture": [
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_737-800/CP.png"
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b737-800/CP.png"
           ],
           "credits": "CP8888"
         }
@@ -856,4 +864,3 @@
     }
   }
 }
-
