@@ -525,7 +525,16 @@
     },
     "3054": {
       "name": "Boeing b737-800",
-      "liveries": [],
+      "liveries": [
+        {
+           "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b737-800/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+           
+      ],
       "labels": [
         "Texture"
       ]
@@ -815,9 +824,34 @@
     },
     "5551": {
       "name": "Comac C919",
-      "liveries": [],
+      "liveries": [
+        {
+           "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Comac_c919/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Texture"
+      ]
+    },
+    "5527": {
+      "name": "Boeing b747-400",
+      "liveries": [
+        {
+           "name": "China Northern B-2449",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b747-400/CP combi.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b747-400/wing/original.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
+      "labels": [
+        "Texture",
+        "Wing texture"
       ]
     }
   }
