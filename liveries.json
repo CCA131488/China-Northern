@@ -868,7 +868,22 @@
         "Texture",
         "Wing texture"
       ]
-    }
+    }，
+    "242": {
+      "name": "Tupolev Tu-204",
+      "liveries": [
+        {
+           "name": "China Northern Cargo",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Tupolev_tu-204/CPcargo.png",
+          ],
+          "credits": "CP8888"
+        }
+      ],
+      "labels": [
+            "Texture"
+      ]
+    }     
   }
 }
 
