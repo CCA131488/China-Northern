@@ -27,7 +27,26 @@
     },
     "4": {
       "name": "Boeing b737-700",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern (no waistline)",
+          "texture": [
+            "/models/aircraft/premium/737_700/normal.jpg",
+            "/models/aircraft/premium/737_700/specular.jpg",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b737-700/CPnowaistline.png"
+          ],
+          "credits": "KN5290＆CP8888"
+        },
+        {
+          "name": "China Northern (white design)",
+          "texture": [
+            "/models/aircraft/premium/737_700/normal.jpg",
+            "/models/aircraft/premium/737_700/specular.jpg",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b737-700/CPwhite.png"
+          ],
+          "credits": "KN5290＆CP8888"
+        }
+      ],
       "labels": [
         "Normal map",
         "Specular shader",
@@ -878,8 +897,6 @@
     }
   }
 }
-
-
 
 
 
