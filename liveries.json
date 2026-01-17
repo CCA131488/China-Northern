@@ -759,6 +759,13 @@
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a321-211/CPnowaistline.png"
           ],
           "credits": "CP8888"
+        },
+        {
+          "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a321-211/CP.png"
+          ],
+          "credits": "31124呀＆CP8888"
         }
       ],
       "labels": [
