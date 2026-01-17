@@ -515,7 +515,15 @@
     },
     "2899": {
       "name": "Airbus a220-300",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a220-300/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Texture"
       ]
@@ -538,7 +546,15 @@
     },
     "2973": {
       "name": "Airbus a350-1000",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a350-1000/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Texture"
       ]
