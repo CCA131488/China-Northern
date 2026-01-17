@@ -863,6 +863,21 @@
         "Texture"
       ]
     },
+    "1055": {
+      "name": "Boeing b777-9X",
+      "liveries": [
+        {
+           "name": "China Northern (planned livery)",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg"
+          ],
+          "credits": "CP8888"
+        }
+      ],
+      "labels": [
+        "Texture"
+      ]
+    },
     "5551": {
       "name": "Comac C919",
       "liveries": [
