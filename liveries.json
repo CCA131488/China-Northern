@@ -922,11 +922,20 @@
       "name": "Boeing b777-9X",
       "liveries": [
         {
-           "name": "China Northern (planned livery)",
+           "name": "China Northern",
           "texture": [
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg",
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg",
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg"
+          ],
+          "credits": "CP8888"
+        },
+        {
+           "name": "China Northern (First 777-9X sticker)",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.jpg",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.jpg",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.jpg"
           ],
           "credits": "CP8888"
         }
@@ -937,4 +946,3 @@
     }
   }
 }
-
