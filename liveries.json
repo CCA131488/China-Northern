@@ -704,7 +704,16 @@
     },
     "4402": {
       "name": "Boeing b777-200F",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern Cargo",
+          "texture": [
+            "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/refs/heads/main/liveries/boeing_b777-200f/shaders/original.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-200F/CPcargo.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Metallic Roughness shader",
         "Texture"
@@ -926,7 +935,4 @@
     }
   }
 }
-
-
-
 
