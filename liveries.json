@@ -903,6 +903,21 @@
         "Texture"
       ]
     },
+    "5551": {
+      "name": "Comac C919",
+      "liveries": [
+        {
+           "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Comac_c919/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
+      "labels": [
+        "Texture"
+      ]    
+    },
     "1005": {
       "name": "Boeing b777-9X",
       "liveries": [
@@ -919,21 +934,6 @@
       "labels": [
         "Texture"
       ]
-    },
-    "5551": {
-      "name": "Comac C919",
-      "liveries": [
-        {
-           "name": "China Northern",
-          "texture": [
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Comac_c919/CP.png"
-          ],
-          "credits": "CP8888"
-        }
-      ],
-      "labels": [
-        "Texture"
-      ]    
     }
   }
 }
