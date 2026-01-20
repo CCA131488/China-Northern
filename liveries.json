@@ -472,7 +472,15 @@
     },
     "2856": {
       "name": "Airbus a330-200",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a330-200/CP.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Texture"
       ]
