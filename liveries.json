@@ -196,16 +196,7 @@
     },
     "24": {
       "name": "Airbus a350-900",
-      "liveries": [
-        {
-          "name": "China Northern (Stellar Sky Alliance)",
-          "texture": [
-            "/models/aircraft/premium/a350/specular.jpg",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a350-900/CPsky.jpg"
-          ],
-          "credits": "CP8888"
-        }
-      ],
+      "liveries": [],
       "labels": [
         "Specular shader",
         "Texture"
