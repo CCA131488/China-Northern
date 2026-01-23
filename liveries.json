@@ -365,7 +365,7 @@
           "texture": [
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b737-900/CP.png"
           ],
-          "credits": "CP8888"
+          "credits": "CP8888＆KN5290"
         }
       ],
       "labels": [
@@ -469,7 +469,7 @@
           "texture": [
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a330-200/CP.png"
           ],
-          "credits": "CP8888"
+          "credits": "CP8888＆KN5290"
         }
       ],
       "labels": [
@@ -929,25 +929,42 @@
         {
            "name": "China Northern",
           "texture": [
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.jpg"
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP.png"
           ],
-          "credits": "CP8888"
+          "credits": "CP8888＆KN5290"
         },
         {
            "name": "China Northern (First 777-9X sticker)",
           "texture": [
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.jpg",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.jpg",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.jpg"
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b777-9X/CP1th.png"
           ],
-          "credits": "CP8888"
+          "credits": "CP8888＆KN5290"
         }
       ],
       "labels": [
         "Texture"
       ]
+    },
+    "5527": {
+      "name": "Boeing b747-400",
+      "liveries": [
+        {
+           "name": "China Northern B-2449",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b747-400/CP_combi.png",
+            "https://raw.githubusercontent.com/kolos26/GEOFS-LiverySelector/main/liveries/boeing_b747-400/wing/original.png"
+          ],
+          "credits": "CP8888＆KN5290"
+        }
+      ],
+      "labels": [
+        "Fuselage texture",
+        "Wing texture"
+      ]    
     }
   }
 }
