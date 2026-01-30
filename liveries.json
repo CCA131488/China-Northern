@@ -470,6 +470,13 @@
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a330-200/CP.png"
           ],
           "credits": "CP8888＆KN5290"
+        },
+        {
+          "name": "China Northern Cargo",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a330-200/CPcargo.png"
+          ],
+          "credits": "CP8888"
         }
       ],
       "labels": [
