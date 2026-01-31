@@ -567,6 +567,13 @@
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a350-1000/CP.png"
           ],
           "credits": "CP8888"
+        },
+        {
+          "name": "China Northern (1nd A350-1000 livery)",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a350-1000/CP35K.png"
+          ],
+          "credits": "CP8888"
         }
       ],
       "labels": [
