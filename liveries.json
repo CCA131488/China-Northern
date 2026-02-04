@@ -352,7 +352,22 @@
     },
     "252": {
       "name": "Boeing b747-8F",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern Cargo",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b747-8F/CPcargo.png"
+          ],
+          "credits": "CP8888"
+        },
+        {
+          "name": "China Northern Cargo (747-8F 6 Years of Safe Flight Sticker)",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b747-8F/B-868Y.png"
+          ],
+          "credits": "CP8888"
+        }
+      ],
       "labels": [
         "Texture"
       ]
