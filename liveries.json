@@ -306,6 +306,36 @@
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png"
           ],
           "credits": "CP8888"
+        },
+        {
+          "name": "China Northern Cargo V1",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png"
+          ],
+          "credits": "CP8888"
+        },
+        {
+          "name": "China Northern Cargo V2",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV2.png"
+          ],
+          "credits": "CP8888"
         }
       ],
       "labels": [
