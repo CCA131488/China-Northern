@@ -733,6 +733,20 @@
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b787-9/CP.png"
           ],
           "credits": "CP8888"
+        },
+        {
+          "name": "China Northern (Stellar Sky Alliance)",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b787-9/CPsky.png"
+          ],
+          "credits": "CP8888"
+        },
+        {
+          "name": "China Northern (Black mask)",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b787-9/B-1991.png"
+          ],
+          "credits": "CP8888"
         }
       ],
       "labels": [
