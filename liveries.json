@@ -99,7 +99,17 @@
     },
     "10": {
       "name": "Airbus a380-800",
-      "liveries": [],
+      "liveries": [
+        {
+          "name": "China Northern (Stellar Sky Alliance livery)",
+          "texture": [
+            "/models/aircraft/premium/a380/normal.jpg",
+            "/models/aircraft/premium/a380/normal.jpg",
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a380/CPsky.png"
+          ],
+          "credits": "KF2447＆CP8888"
+        }
+      ],
       "labels": [
         "Normal map",
         "Specular shader",
