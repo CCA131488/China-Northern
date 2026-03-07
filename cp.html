@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国北方航空 · 机队档案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background-color: #033b84;
+            color: #f0f4fa;
+            line-height: 1.5;
+        }
+
+        .wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem;
+        }
+
+        /* 航空公司介绍卡片 */
+        .intro-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .intro-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, #b3d9ff 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hub-badge {
+            display: inline-block;
+            background: #f5b342;
+            color: #033b84;
+            font-weight: 600;
+            padding: 0.3rem 1.5rem;
+            border-radius: 30px;
+            margin: 0.8rem 0 1.2rem;
+            font-size: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+        }
+
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-top: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.2s;
+        }
+
+        .discord-btn:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+        }
+
+        /* 语言切换按钮 */
+        .lang-switch {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .lang-switch:hover {
+            background: #f5b342;
+            color: #033b84;
+        }
+
+        /* 板块标题 */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.8rem;
+            border-left: 8px solid #f5b342;
+            padding-left: 1.5rem;
+        }
+
+        /* 机型网格 */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .fleet-card {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 28px;
+            padding: 1.5rem 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-6px);
+            border-color: #f5b342;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .fleet-type {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.4rem;
+        }
+
+        .fleet-count {
+            font-size: 1rem;
+            opacity: 0.7;
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+        }
+
+        /* 旗下航空卡片 */
+        .subsidiary-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .sub-card {
+            flex: 1 1 280px;
+            background: rgba(0,0,0,0.25);
+            border-radius: 32px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(4px);
+        }
+
+        .sub-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #f5b342;
+            margin-bottom: 0.8rem;
+        }
+
+        .sub-desc {
+            opacity: 0.8;
+        }
+
+        /* 模态框 */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s;
+        }
+
+        .modal.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #052d5f;
+            max-width: 800px;
+            width: 90%;
+            border-radius: 48px;
+            padding: 2rem;
+            border: 1px solid #f5b342;
+            box-shadow: 0 30px 40px rgba(0,0,0,0.6);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 2.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0 0.5rem;
+        }
+
+        .livery-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .livery-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .livery-btn:hover {
+            background: #f5b342;
+            color: #033b84;
+            border-color: #f5b342;
+        }
+
+        .preview-image {
+            width: 100%;
+            border-radius: 32px;
+            background: #1a2f4e;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed rgba(255,255,255,0.2);
+            overflow: hidden;
+        }
+
+        .preview-image img {
+            max-width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .placeholder-text {
+            opacity: 0.5;
+            font-size: 1.2rem;
+        }
+
+        .total-fleet {
+            margin-top: 2rem;
+            text-align: right;
+            font-size: 1.3rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- 航空公司介绍 -->
+    <div class="intro-card" id="introCard">
+        <h1 class="intro-title" id="airlineName">中国北方航空 · 星天联盟</h1>
+        <div class="hub-badge" id="hubBadge">主枢纽：沈阳桃仙 (ZYTX)</div>
+        <p class="intro-text" id="introText">
+            中国北方航空公司成立于 2001 年 5 月 20 日，总部位于沈阳桃仙。公司致力于通过先进的机队和广阔的航线网络，为旅客提供安全、高效、舒适的服务。<br>
+            呼号“CP/CPJ”，首航航线：沈阳桃仙 ✈️ 巴黎戴高乐。<br>
+            机队涵盖空客、波音、中国商飞多机型，并运营 B747-8F、B777F 等全货机，实力雄厚。
+        </p>
+        <a href="https://discord.gg/TPpnqTvJ" target="_blank" class="discord-btn" id="discordBtn">
+            <span>📱</span> 加入我们的 Discord 服务器
+        </a>
+        <!-- 语言切换按钮 -->
+        <button class="lang-switch" id="langToggle">English</button>
+    </div>
+
+    <!-- 机队介绍板块 -->
+    <h2 class="section-title" id="fleetTitle">✈️ 现役机队 · 点击查看涂装</h2>
+    <div class="fleet-grid" id="fleetGrid"></div>
+    <div class="total-fleet" id="totalDisplay"></div>
+
+    <!-- 旗下航空板块 -->
+    <h2 class="section-title" id="subsidiaryTitle">旗下航空</h2>
+    <div class="subsidiary-grid">
+        <div class="sub-card">
+            <div class="sub-name" id="subName1">旅行航空</div>
+            <p class="sub-desc" id="subDesc1">专注于热门旅游航线，提供轻松便捷的度假体验。以年轻活力的服务和高性价比著称，机队以A320系列为主。</p>
+        </div>
+        <div class="sub-card">
+            <div class="sub-name" id="subName2">颜夕航空</div>
+            <p class="sub-desc" id="subDesc2">区域支线航空品牌，连接中国东北与邻近国家，主打高效准点与温馨服务，呼号“YANXI”。</p>
+        </div>
+    </div>
+</div>
+
+<!-- 涂装预览模态框 -->
+<div class="modal" id="liveryModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 id="modalAircraft">A321neo</h2>
+            <button class="close-btn" id="closeModal">&times;</button>
+        </div>
+        <div class="livery-buttons" id="liveryButtons"></div>
+        <div class="preview-image" id="previewContainer">
+            <img id="previewImg" src="" alt="涂装预览" style="display: none;">
+            <span class="placeholder-text" id="previewPlaceholder">点击上方按钮查看涂装</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ---------- 机型数据 (保持不变) ----------
+        const fleetData = [
+            "B737-800 (10/10)",
+            "B737-800BCF (1/1)",
+            "B737-8 (5/5)",
+            "B737-900ER (14/14)",
+            "B747-400combi (1/4)",
+            "B747-400 (0/6)",
+            "B747-400F (0/9)",
+            "B747-8 (21/21)",
+            "B747-8F (4/4)",
+            "B767-300ERF (3/3)",
+            "B777-200ER (4/4)",
+            "B777-F (11/13)",
+            "B777-300ER (10/10)",
+            "B777-9X (0/20)",
+            "B787-9 (1/5)",
+            "B787-10 (3/3)",
+            "A220-300 (1/2)",
+            "A319neo (2/14)",
+            "A320-214 (7/8)",
+            "A320neo (0/2)",
+            "A321neo (12/12)",
+            "A321XLR (1/4)",
+            "A330-200 (5/5)",
+            "A330-200F (4/4)",
+            "A340-300 (5/5)",
+            "A350-900 (10/11)",
+            "A350-1000 (3/3)",
+            "A380-800 (1/1)",
+            "C919-100 (5/10)",
+            "B737-700 (1/7)",
+            "A321-211 (3/4)"
+        ];
+
+        // ---------- 涂装数据 (完整保留用户添加的所有内容) ----------
+        const liveries = {
+            "A321neo": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/21N.png" },
+                { name: { zh: "无墨镜涂装", en: "No Sunglasses" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/321n_no.png" }
+            ],
+            "A321XLR": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/321XLR.png" }
+            ],
+            "A350-1000": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/35K.png" },
+                { name: { zh: "第一架A350-1000", en: "First A350-1000" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/35K1st.png" }
+            ],
+            "B737-800": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/738.png" }
+            ],
+            "B737-800BCF": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/738cargo.png" }
+            ],
+            "B777-F": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/screenshots/777F.png" }
+            ],
+            "A321-211": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/211.png?raw=true" },
+                { name: { zh: "蜜雪冰城涂装", en: "Mixue Ice City" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/211mixue.png?raw=true" },
+                { name: { zh: "无腰线设计涂装", en: "No Waistline" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/211white.png?raw=true" }
+            ],
+            "A319neo": [
+                { name: { zh: "25周年纪念涂装", en: "25th Anniversary" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/319n25.png?raw=true" },
+                { name: { zh: "中国新年涂装", en: "Chinese New Year" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/319n_newyear.png?raw=true" },
+                { name: { zh: "温州号涂装", en: "Wenzhou Edition" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/319n_wenzhou.png?raw=true" }
+            ],
+            "A330-200": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/332.png?raw=true" }
+            ],
+            "A330-200(P2F)": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/332cargo.png?raw=true" }
+            ],
+            "A340-300": [
+                { name: { zh: "星天联盟涂装", en: "Star Sky Alliance" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/343.png?raw=true" }
+            ],
+            "A380": [
+                { name: { zh: "星天联盟涂装", en: "Star Sky Alliance" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/388.png?raw=true" }
+            ],
+            "B737-700": [
+                { name: { zh: "无腰线设计涂装", en: "No Waistline" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/737white.png?raw=true" },
+                { name: { zh: "白色设计涂装", en: "White Design" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/737white2.png?raw=true" }
+            ],
+            "B737-900": [
+                { name: { zh: "无腰线设计涂装", en: "No Waistline" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/739.png?raw=true" }
+            ],
+            "B747-400": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/744.png?raw=true" },
+                { name: { zh: "白鼻子涂装", en: "White Nose" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/744whitenose.png?raw=true" }
+            ],
+            "B747-400combi": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/744combi.png?raw=true" }
+            ],
+            "B747-8F": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/748f.png?raw=true" },
+                { name: { zh: "安全飞行6周年涂装", en: "6 Years Safe Flight" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/748f6.png?raw=true" }
+            ],
+            "B767-300ERF": [
+                { name: { zh: "标准涂装V1", en: "Standard Livery V1" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/763v1.png?raw=true" },
+                { name: { zh: "标准涂装V2", en: "Standard Livery V2" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/763v2.png?raw=true" }
+            ],
+            "B777-200ER": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/772ER.png?raw=true" }
+            ],
+            "B777-9X": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/779.png?raw=true" },
+                { name: { zh: "第一架777-9X贴纸涂装", en: "First 777-9X Sticker" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/779tick.png?raw=true" }
+            ],
+            "B787-9": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/789.png?raw=true" },
+                { name: { zh: "星天联盟涂装", en: "Star Sky Alliance" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/789sky.png?raw=true" },
+                { name: { zh: "星天联盟-带墨镜涂装", en: "Star Sky w/ Sunglasses" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/789skyblack.png?raw=true" }
+            ],
+            "C919": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/919.png?raw=true" },
+                { name: { zh: "2026特殊涂装", en: "2026 Special" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/919_2026.png?raw=true" }
+            ],
+            "A220-300": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/A220.png?raw=true" }
+            ],
+            "AW609": [
+                { name: { zh: "标准涂装", en: "Standard Livery" }, url: "https://github.com/CCA131488/China-Northern/blob/main/screenshots/AW609.png?raw=true" }
+            ]
+        };
+
+        // ---------- 英文翻译映射 ----------
+        const translations = {
+            zh: {
+                airlineName: "中国北方航空 · 星天联盟",
+                hubBadge: "主枢纽：沈阳桃仙 (ZYTX)",
+                introText: "中国北方航空公司成立于 2001 年 5 月 20 日，总部位于沈阳桃仙。公司致力于通过先进的机队和广阔的航线网络，为旅客提供安全、高效、舒适的服务。\n呼号“CP/CPJ”，首航航线：沈阳桃仙 ✈️ 巴黎戴高乐。\n机队涵盖空客、波音、中国商飞多机型，并运营 B747-8F、B777F 等全货机，实力雄厚。",
+                discordBtn: "加入我们的 Discord 服务器",
+                fleetTitle: "✈️ 现役机队 · 点击查看涂装",
+                subsidiaryTitle: "旗下航空",
+                subName1: "旅行航空",
+                subDesc1: "运营中远程航线，使用来自各大制造商的各种飞机。",
+                subName2: "颜夕航空",
+                subDesc2: "基地位于义乌，机队规模很庞大",
+                placeholder: "点击上方按钮查看涂装",
+                totalFleet: "机队总数：146 架",
+                langBtn: "English"
+            },
+            en: {
+                airlineName: "China Northern Airlines · A Member of Stellar Sky Alliance",
+                hubBadge: "Main Hub: Shenyang Taoxian (ZYTX)",
+                introText: "China Northern Airlines was founded on May 20, 2001, with headquarters in Shenyang Taoxian. The company is dedicated to providing safe, efficient, and comfortable services through its advanced fleet and extensive route network.\nCall sign \"CP/CPJ\". Inaugural flight: Shenyang Taoxian ✈️ Paris Charles de Gaulle.\nThe fleet includes Airbus, Boeing, and COMAC aircraft, and operates full freighters such as B747-8F and B777F, demonstrating strong capabilities.",
+                discordBtn: "Join our Discord Server",
+                fleetTitle: "✈️ Active Fleet · Click to View Liveries",
+                subsidiaryTitle: "Subsidiaries",
+                subName1: "Travel Airways",
+                subDesc1: "Operating medium- and long-haul routes, with a variety of aircraft from major manufacturers.",
+                subName2: "YX Airlines",
+                subDesc2: "The base is located in Yiwu, and the fleet is very large.",
+                placeholder: "Click a button above to view livery",
+                totalFleet: "Total Fleet: 146 aircraft",
+                langBtn: "中文"
+            }
+        };
+
+        // 当前语言: 'zh' 或 'en'
+        let currentLang = 'zh';
+
+        // 获取需要翻译的元素
+        const airlineNameEl = document.getElementById('airlineName');
+        const hubBadgeEl = document.getElementById('hubBadge');
+        const introTextEl = document.getElementById('introText');
+        const discordBtnEl = document.getElementById('discordBtn');
+        const fleetTitleEl = document.getElementById('fleetTitle');
+        const subsidiaryTitleEl = document.getElementById('subsidiaryTitle');
+        const subName1El = document.getElementById('subName1');
+        const subDesc1El = document.getElementById('subDesc1');
+        const subName2El = document.getElementById('subName2');
+        const subDesc2El = document.getElementById('subDesc2');
+        const totalDisplayEl = document.getElementById('totalDisplay');
+        const placeholderEl = document.getElementById('previewPlaceholder');
+        const langToggleEl = document.getElementById('langToggle');
+
+        // 更新界面文字
+        function updateLanguage() {
+            const t = translations[currentLang];
+            airlineNameEl.textContent = t.airlineName;
+            hubBadgeEl.textContent = t.hubBadge;
+            introTextEl.innerHTML = t.introText.replace(/\n/g, '<br>');
+            discordBtnEl.innerHTML = `<span>📱</span> ${t.discordBtn}`;
+            fleetTitleEl.textContent = t.fleetTitle;
+            subsidiaryTitleEl.textContent = t.subsidiaryTitle;
+            subName1El.textContent = t.subName1;
+            subDesc1El.textContent = t.subDesc1;
+            subName2El.textContent = t.subName2;
+            subDesc2El.textContent = t.subDesc2;
+            totalDisplayEl.textContent = t.totalFleet;
+            placeholderEl.textContent = t.placeholder;
+            langToggleEl.textContent = translations[currentLang].langBtn;
+        }
+
+        // 语言切换事件
+        langToggleEl.addEventListener('click', () => {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateLanguage();
+            // 重新渲染机型网格（为了更新卡片点击后涂装按钮文字）
+            renderFleetGrid();
+        });
+
+        // ---------- 机型排序 (按字母顺序) ----------
+        const sortedFleetData = [...fleetData].sort((a, b) => {
+            const typeA = a.split(' (')[0];
+            const typeB = b.split(' (')[0];
+            return typeA.localeCompare(typeB);
+        });
+
+        // 渲染机型网格
+        function renderFleetGrid() {
+            const grid = document.getElementById('fleetGrid');
+            grid.innerHTML = ''; // 清空
+            sortedFleetData.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'fleet-card';
+                const type = item.split(' (')[0];
+                card.setAttribute('data-type', type);
+                card.innerHTML = `<div class="fleet-type">${type}</div><div class="fleet-count">${item.split('(')[1]?.replace(')','') || ''}</div>`;
+                card.addEventListener('click', () => openModal(type));
+                grid.appendChild(card);
+            });
+        }
+
+        // 模态框元素
+        const modal = document.getElementById('liveryModal');
+        const modalTitle = document.getElementById('modalAircraft');
+        const liveryButtonsDiv = document.getElementById('liveryButtons');
+        const previewImg = document.getElementById('previewImg');
+        const placeholder = document.getElementById('previewPlaceholder');
+        const closeBtn = document.getElementById('closeModal');
+
+        function openModal(aircraftType) {
+            modalTitle.innerText = aircraftType;
+            liveryButtonsDiv.innerHTML = '';
+            previewImg.style.display = 'none';
+            placeholder.style.display = 'block';
+
+            const liveryList = liveries[aircraftType] || [];
+            if (liveryList.length === 0) {
+                const btn = document.createElement('button');
+                btn.className = 'livery-btn';
+                btn.innerText = currentLang === 'zh' ? '暂无涂装数据' : 'No livery data';
+                btn.disabled = true;
+                liveryButtonsDiv.appendChild(btn);
+            } else {
+                liveryList.forEach((livery) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'livery-btn';
+                    // 根据当前语言显示按钮文字
+                    btn.innerText = livery.name[currentLang] || livery.name.zh;
+                    btn.addEventListener('click', () => {
+                        if (livery.url) {
+                            previewImg.src = livery.url;
+                            previewImg.style.display = 'block';
+                            placeholder.style.display = 'none';
+                        } else {
+                            alert(currentLang === 'zh' ? '图片链接未提供' : 'Image URL not provided');
+                        }
+                    });
+                    liveryButtonsDiv.appendChild(btn);
+                });
+            }
+
+            modal.classList.add('show');
+        }
+
+        // 关闭模态框
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+            previewImg.src = '';
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('show');
+        });
+
+        // 初始化
+        renderFleetGrid();
+        updateLanguage();
+        console.log('网站已加载，支持中英文切换，机型按字母排序');
+    })();
+</script>
+</body>
+</html>
