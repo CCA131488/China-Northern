@@ -312,21 +312,6 @@
       "name": "Boeing b767-300ER",
       "liveries": [
         {
-          "name": "China Northern (Meizhou Pomelo livery)",
-          "texture": [
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png",
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPPomelo.png"
-          ],
-          "credits": "CP8888"
-        },
-        {
           "name": "China Northern Cargo V1",
           "texture": [
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b767-300ER/CPcargoV1.png",
