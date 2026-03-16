@@ -1,4 +1,4 @@
-name: livery Update
+name: China Northern Livery Update
 
 on:
   push:
@@ -12,29 +12,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 1
 
-      - name: Send Discord update
-        env:
-          WEBHOOK_URL: https://discord.com/api/webhooks/1483071401878622422/7p0QY-UxbD4NEfMoqmu_f9e3RWbLc_-qOq4qSyh4ysGfOVWl3gjojXYb0ntpQLnv1FY0
+      - name: Install jq (JSON processor)
+        run: sudo apt-get install jq
+
+      - name: Parse livery.json and prepare message
+        id: prepare_message
         run: |
-          # 获取 livery.json 内容并处理
+          # Read livery.json content
           LIVERY_JSON=$(cat livery.json)
-          
-          # 获取机型和涂装信息
-          aircrafts=$(echo "$LIVERY_JSON" | jq -r '.aircraft')
-          text="# livery update\n\n"
+
+          # Initialize the message content
+          text="# China Northern livery update\n\n"
           total=0
 
-          for aircraft in $(echo "$aircrafts" | jq -r '.[] | @base64'); do
+          # Iterate through the aircraft data in the JSON file
+          for aircraft in $(echo "$LIVERY_JSON" | jq -r '.aircraft[] | @base64'); do
             _aircraft=$(echo "$aircraft" | base64 --decode)
             aircraft_name=$(echo "$_aircraft" | jq -r '.name')
             text="$text**$aircraft_name**\n"
             liveries=$(echo "$_aircraft" | jq -r '.liveries')
 
+            # Iterate through each livery of the aircraft
             for livery in $(echo "$liveries" | jq -r '.[] | @base64'); do
               _livery=$(echo "$livery" | base64 --decode)
               livery_name=$(echo "$_livery" | jq -r '.name')
@@ -45,11 +49,42 @@ jobs:
             text="$text\n"
           done
 
-          # 总计涂装数
+          # Convert total to emoji representation
           emojiTotal=$(echo $total | sed 's/[0-9]/\0:/g')
 
-          # 添加 Total
+          # Add Total count to message
           text="$text Total: $emojiTotal"
 
-          # 发送 Discord 消息
-          curl -X POST -H "Content-Type: application/json" -d '{"content": "'"$text"'"}' $WEBHOOK_URL
+          # Output the prepared message
+          echo "Prepared message: $text"
+          echo "::set-output name=message::$text"
+
+      - name: Send message to Discord Webhook
+        env:
+          WEBHOOK_URL: ${{ secrets.LIVERY_UPDATE_WEBHOOK }}
+        run: |
+          # Send the prepared message to Discord
+          curl -X POST -H "Content-Type: application/json" -d '{"content": "'"${{ steps.prepare_message.outputs.message }}"'"}' $WEBHOOK_URL
+
+      - name: Commit the new commit.txt
+        id: get_commit
+        uses: pr-mpt/actions-commit-hash@v2
+
+      - name: Write commit hash to commit.txt
+        uses: 1arp/create-a-file-action@0.4.5
+        with:
+          path: '.' 
+          isAbsolutePath: false
+          file: '.webhook/commit.txt'
+          content: |
+            ${{ steps.get_commit.outputs.hash }}
+
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git pull
+          git config user.name "github-actions"
+          git add .webhook/commit.txt
+          git commit -m "Update commit.txt with latest commit hash"
+          git push
