@@ -29,7 +29,7 @@
       "name": "Boeing b737-700",
       "liveries": [
         {
-          "name": "China Northern (No waistline design)",
+          "name": "China Northern (No waistline)",
           "texture": [
             "/models/aircraft/premium/737_700/normal.jpg",
             "/models/aircraft/premium/737_700/specular.jpg",
@@ -762,7 +762,7 @@
           "credits": "CP8888"
         },
         {
-          "name": "China Northern (Stellar Sky Alliance livery - black mask)",
+          "name": "China Northern (Stellar Sky Alliance livery - Black mask)",
           "texture": [
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_b787-9/B-1991.png"
           ],
