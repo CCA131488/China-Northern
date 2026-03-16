@@ -1,0 +1,55 @@
+name: livery Update
+
+on:
+  push:
+    paths:
+      - livery.json
+  workflow_dispatch:
+
+jobs:
+  discord-livery-announcement:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+
+      - name: Send Discord update
+        env:
+          WEBHOOK_URL: https://discord.com/api/webhooks/1483071401878622422/7p0QY-UxbD4NEfMoqmu_f9e3RWbLc_-qOq4qSyh4ysGfOVWl3gjojXYb0ntpQLnv1FY0
+        run: |
+          # 获取 livery.json 内容并处理
+          LIVERY_JSON=$(cat livery.json)
+          
+          # 获取机型和涂装信息
+          aircrafts=$(echo "$LIVERY_JSON" | jq -r '.aircraft')
+          text="# livery update\n\n"
+          total=0
+
+          for aircraft in $(echo "$aircrafts" | jq -r '.[] | @base64'); do
+            _aircraft=$(echo "$aircraft" | base64 --decode)
+            aircraft_name=$(echo "$_aircraft" | jq -r '.name')
+            text="$text**$aircraft_name**\n"
+            liveries=$(echo "$_aircraft" | jq -r '.liveries')
+
+            for livery in $(echo "$liveries" | jq -r '.[] | @base64'); do
+              _livery=$(echo "$livery" | base64 --decode)
+              livery_name=$(echo "$_livery" | jq -r '.name')
+              author_name=$(echo "$_livery" | jq -r '.author')
+              text="$text$livery_name *by: $author_name*\n"
+              total=$((total + 1))
+            done
+            text="$text\n"
+          done
+
+          # 总计涂装数
+          emojiTotal=$(echo $total | sed 's/[0-9]/\0:/g')
+
+          # 添加 Total
+          text="$text Total: $emojiTotal"
+
+          # 发送 Discord 消息
+          curl -X POST -H "Content-Type: application/json" -d '{"content": "'"$text"'"}' $WEBHOOK_URL
