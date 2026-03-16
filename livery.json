@@ -29,7 +29,7 @@
       "name": "Boeing b737-700",
       "liveries": [
         {
-          "name": "China Northern (no waistline design)",
+          "name": "China Northern (No waistline design)",
           "texture": [
             "/models/aircraft/premium/737_700/normal.jpg",
             "/models/aircraft/premium/737_700/specular.jpg",
