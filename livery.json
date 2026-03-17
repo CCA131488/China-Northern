@@ -668,7 +668,14 @@
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_737-800/CPcargo.png"
           ],
           "credits": "CP8888"
-        }     
+        },
+        {
+           "name": "China Northern x Travel Airways",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Boeing_737-800/B-6657.png"
+          ],
+          "credits": "KN5290＆CP8888"
+        }
       ],
       "labels": [
         "Texture"
