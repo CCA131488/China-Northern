@@ -1,0 +1,35 @@
+name: Discord Commit Notification
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  notify:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Discord Webhook
+        env:
+          WEBHOOK: ${{ secrets.GITHUB }}
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{
+            \"username\": \"GitHub\",
+            \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\",
+            \"embeds\": [{
+              \"title\": \"[${{ github.repository }}:${{ github.ref_name }}] New commit\",
+              \"url\": \"https://github.com/${{ github.repository }}/commit/${{ github.sha }}\",
+              \"color\": 5814783,
+              \"author\": {
+                \"name\": \"${{ github.actor }}\"
+              },
+              \"description\": \"${{ github.event.head_commit.message }}\",
+              \"footer\": {
+                \"text\": \"Click to view commit\"
+              }
+            }]
+          }" \
+          $WEBHOOK
