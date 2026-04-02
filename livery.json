@@ -926,6 +926,13 @@
       "name": "Airbus a321-211",
       "liveries": [
         {
+          "name": "China Northern",
+          "texture": [
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a321-211/CP.png"
+          ],
+          "credits": "31124呀＆CP8888"
+        },
+        {
           "name": "China Northern (Mixue Ice Cream & Tea livery)",
           "texture": [
             "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a321-211/cpmixue.png"
@@ -940,11 +947,11 @@
           "credits": "CP8888"
         },
         {
-          "name": "China Northern",
+          "name": "China Northern Airlines (ex Hong Kong Express)",
           "texture": [
-            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a321-211/CP.png"
+            "https://raw.githubusercontent.com/CCA131488/China-Northern/refs/heads/main/liveries/Airbus_a321-211/B-55A9.jpg"
           ],
-          "credits": "31124呀＆CP8888"
+          "credits": "CP8888"
         }
       ],
       "labels": [
